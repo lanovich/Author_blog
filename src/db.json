@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "login": "Ivan",
+      "password": "12345678",
+      "registered_at": "2025-12-23",
+      "role_id": 0
+    }
+  ],
+  "roles": [
+    {
+      "id": 0,
+      "name": "Администратор"
+    },
+    {
+      "id": 1,
+      "name": "Модератор"
+    },
+    {
+      "id": 2,
+      "name": "Читатель"
+    },
+    {
+      "id": 3,
+      "name": "Гость"
+    }
+  ],
+
+  "posts": [
+    {
+      "id": 0,
+      "title": "Заголовок",
+      "image_url": "https://ru.pinterest.com/pin/70437489677358/",
+      "content": "текст текст текст текст",
+      "published_at": "2025-12-31"
+    },
+    {
+      "id": 1,
+      "title": "Заголовок",
+      "image_url": "https://ru.pinterest.com/pin/70437489677358/",
+      "content": "текст текст текст текст",
+      "published_at": "2025-12-31"
+    },
+    {
+      "id": 2,
+      "title": "Заголовок",
+      "image_url": "https://ru.pinterest.com/pin/70437489677358/",
+      "content": "текст текст текст текст",
+      "published_at": "2025-12-31"
+    }
+  ],
+  "comments": [
+    {
+      "id": 0,
+      "author_id": 0,
+      "post_id": 2,
+      "content": "хороший пост"
+    }
+  ]
+}
