@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# Области хранения:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- БД (json-server)
+- BFF
+  редакс стор
 
-Currently, two official plugins are available:
+# Сущности приложения
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- пользователь: БД (список пользователей), BFF (сессия текущего), стор (отображение в браузере)
+- роль пользователя: БД (список ролей), BFF (сессия пользователя с ролью), стор (использование на клиенте)
+- статья: БД (список статей), стор (отображение в браузере)
+- комментарий: БД (список комментарией), стор (отображение в браузере)
 
-## Expanding the ESLint configuration
+# Таблицы БД:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- пользователи   Users:    id | login     | password  | registered_at | role_id
 
-- Configure the top-level `parserOptions` property like this:
+- роли           Roles:    id | name      |           |               |       
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- статьи         Posts:    id | title     | image_url | content       | published_at
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- комментарии    Comments: id | author_id | post_id   | content
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# Схема состояния на BFF:
+
+- схема текущего пользователя: login | password | role
+
+# Схема для редакс стора (на клиенте):
+
+- user: id | login | role
+
+- users: массив user: id | login | registeredAt | role
+
+- posts: массив post: id | title | imageUrl | publishedAt | commmentsCount
+
+- post: id | title | content | publishedAt | comments: массив comment: id | author | content | publishedAt
