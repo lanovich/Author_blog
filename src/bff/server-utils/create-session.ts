@@ -1,6 +1,6 @@
-import { ROLE_IDS } from "../constants";
-import { Session } from "../types";
-import { deleteComment } from "./session";
+import { ROLE_IDS} from "../../constants";
+import { Session } from "../../types";
+import { deleteComment } from "../session-control-methods";
 
 export const createSession = (roleId: number): Session => {
   const session: Session = {
