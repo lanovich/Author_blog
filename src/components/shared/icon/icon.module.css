@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin: var(--icon-margin, 0);
+}
+
+.icon {
+  margin-top: 17px;
+  font-size: var(--icon-font-size, 20px);
+}

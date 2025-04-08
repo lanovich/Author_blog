@@ -1,0 +1,18 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+  font-size: 70px;
+  gap: 10px;
+}
+
+.largeText {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: start;
+}
+
+.smallText {
+  font-size: 18px;
+  font-weight: bold;
+}

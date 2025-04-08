@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1000px;
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.content {
+  padding: 20px 0;
+}
+
+.heading2 {
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  background: white;
+  top: 0;
+  width: 1000px;
+  text-align: center;
+  padding: 20px 40px;
+  box-shadow: 0 0 15px black;
+}
+
+.footer {
+  text-align: center;
+}
