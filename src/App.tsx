@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import styles from "./App.module.css";
 import { Footer, Header } from "./components";
+import styles from "./App.module.css";
 
 export const Blog = () => {
   return (

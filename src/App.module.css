@@ -9,7 +9,8 @@
 }
 
 .content {
-  padding: 20px 0;
+  padding: 120px 0;
+  height: 100vh;
 }
 
 .heading2 {
@@ -23,11 +24,16 @@
   background: white;
   top: 0;
   width: 1000px;
-  text-align: center;
   padding: 20px 40px;
   box-shadow: 0 0 15px black;
 }
 
 .footer {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  padding: 20px 40px;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 0 15px black;
 }
