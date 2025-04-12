@@ -11,4 +11,11 @@ export interface User {
   role_id: number;
 }
 
+export interface UserState {
+  session: string;
+  id: number | null;
+  login: string | null;
+  roleId: number;
+}
+
 export type Users = User[]

@@ -1,6 +1,12 @@
-import { getUserByLogin, createUser, createSession } from "./server-utils";
+import { sessions } from "../sessions";
+import { User } from "../types";
+import { getUserByLogin, createUser } from "./server-utils";
 
 export const server = {
+  async logout(sessionHash: string) {
+    sessions.remove(sessionHash)
+  },
+
   async authorize(authLogin: string, authPassword: string) {
     const user = await getUserByLogin(authLogin);
 
@@ -20,7 +26,13 @@ export const server = {
 
     return {
       error: null,
-      res: createSession(user.role_id),
+      res: {
+        id: user.id,
+        login: user.login,
+        roleId: user.role_id,
+        registered_at: user.registered_at,
+        session: sessions.create(user),
+      } as Partial<User>,
     };
   },
 
@@ -38,7 +50,12 @@ export const server = {
 
     return {
       error: null,
-      res: createSession(newUser.role_id),
+      res: {
+        id: newUser.id,
+        login: newUser.login,
+        roleId: newUser.role_id,
+        session: sessions.create(newUser),
+      },
     };
   },
 };
