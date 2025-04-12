@@ -1,13 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Icon } from "../../../shared";
+import { Button, Icon } from "@/components/shared";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectUserRole,
-  selectUserLogin,
-  selectUserSession,
-} from "../../../../selectors";
-import { ROLE_IDS } from "../../../../constants";
-import { logout } from "../../../../actions";
+import { selectUserRole, selectUserLogin, selectUserSession } from "@/selectors";
+import { ROLE_IDS } from "@/constants";
+import { logout } from "@/actions";
 import styles from "./control-panel.module.css";
 
 export const ControlPanel = () => {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Icon } from "../../../shared";
+import { Icon } from "@/components/shared";
 import styles from "./logo.module.css";
 
 export const Logo = () => {

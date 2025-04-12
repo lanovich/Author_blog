@@ -7,12 +7,12 @@ import { server } from "@/bff";
 import { Button, H2, Input } from "@/components/shared";
 import { Link, Navigate } from "react-router-dom";
 import { setUser } from "@/actions";
-import styles from "./authorization.module.css";
 import { selectUserRole } from "@/selectors";
 import { ROLE_IDS } from "@/constants";
+import styles from "./registration.module.css";
 import { useResetForm } from "@/hooks";
 
-const authFormSchema = yup.object().shape({
+const regFormSchema = yup.object().shape({
   login: yup
     .string()
     .required("Логин обязателен")
@@ -25,11 +25,15 @@ const authFormSchema = yup.object().shape({
     .matches(/^[\w#%]+$/, "Неверно заполнен пароль. Допускаются буквы, цифры и знаки # %")
     .min(6, "Неверно заполнен пароль. Минимум 6 символов")
     .max(30, "Неверно заполнен пароль. Максимум 30 символов"),
+  passcheck: yup
+    .string()
+    .required("Заполните повтор пароля")
+    .oneOf([yup.ref("password")], "Повтор пароля не совпадает"),
 });
 
-type FormData = yup.InferType<typeof authFormSchema>;
+type FormData = yup.InferType<typeof regFormSchema>;
 
-export const Authorization: React.FC = () => {
+export const Registration: React.FC = () => {
   const [serverError, setServerError] = useState<string | null>("");
   const roleId = useSelector(selectUserRole);
   const dispatch = useDispatch();
@@ -40,12 +44,12 @@ export const Authorization: React.FC = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
-    resolver: yupResolver(authFormSchema),
+    resolver: yupResolver(regFormSchema),
   });
 
   const onSubmit = async ({ login, password }: FormData) => {
     try {
-      const { error, res } = await server.authorize(login, password);
+      const { error, res } = await server.register(login, password);
       if (error) {
         setServerError(`Ошибка: ${error}`);
         return;
@@ -58,7 +62,11 @@ export const Authorization: React.FC = () => {
     }
   };
 
-  const errorMessage = errors.login?.message || errors.password?.message || serverError;
+  const errorMessage =
+    errors.login?.message ||
+    errors.password?.message ||
+    errors.passcheck?.message ||
+    serverError;
 
   useResetForm(reset);
 
@@ -68,7 +76,7 @@ export const Authorization: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <H2>Авторизация</H2>
+      <H2>Регистрация</H2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type="text"
@@ -84,12 +92,19 @@ export const Authorization: React.FC = () => {
           {...register("password", { onChange: () => setServerError(null) })}
           error={!!errors.password}
         />
+        <Input
+          type="password"
+          placeholder="Проверка пароля..."
+          autoComplete="current-password"
+          {...register("passcheck", { onChange: () => setServerError(null) })}
+          error={!!errors.password}
+        />
         <Button type="submit" disabled={isSubmitting || !!errorMessage}>
-          {isSubmitting ? "Авторизация..." : "Авторизоваться"}
+          {isSubmitting ? "Регистрация..." : "Зарегистрироваться"}
         </Button>
         {errorMessage && <div className={styles.error}>{errorMessage}</div>}
-        <Link to={"/register"} className={styles.link}>
-          Регистрация
+        <Link to={"/login"} className={styles.link}>
+          Войти
         </Link>
       </form>
     </div>

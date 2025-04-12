@@ -6,44 +6,71 @@
       "password": "12345678",
       "registered_at": "2025-12-23",
       "role_id": 0
+    },
+    {
+      "id": "45352",
+      "login": "kolya",
+      "password": "123123",
+      "registered_at": "2064-02-27 00:47",
+      "role_id": 2
+    },
+    {
+      "id": "3140",
+      "login": "kolya2",
+      "password": "123123",
+      "registered_at": "2050-05-11 22:17",
+      "role_id": 2
+    },
+    {
+      "id": "92301",
+      "login": "321",
+      "password": "321321",
+      "registered_at": "2050-06-24 18:42",
+      "role_id": 2
+    },
+    {
+      "id": "39051",
+      "login": "123",
+      "password": "123123",
+      "registered_at": "2039-09-04 15:00",
+      "role_id": 2
     }
   ],
   "roles": [
     {
-      "id": 0,
+      "id": "0",
       "name": "Администратор"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "Модератор"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Читатель"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Гость"
     }
   ],
-
   "posts": [
     {
-      "id": 0,
+      "id": "0",
       "title": "Заголовок",
       "image_url": "https://ru.pinterest.com/pin/70437489677358/",
       "content": "текст текст текст текст",
       "published_at": "2025-12-31"
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Заголовок",
       "image_url": "https://ru.pinterest.com/pin/70437489677358/",
       "content": "текст текст текст текст",
       "published_at": "2025-12-31"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Заголовок",
       "image_url": "https://ru.pinterest.com/pin/70437489677358/",
       "content": "текст текст текст текст",
@@ -52,7 +79,7 @@
   ],
   "comments": [
     {
-      "id": 0,
+      "id": "0",
       "author_id": 0,
       "post_id": 2,
       "content": "хороший пост"

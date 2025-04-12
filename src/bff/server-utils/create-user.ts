@@ -1,4 +1,4 @@
-import { User } from "../../types";
+import { User } from "@/types";
 import { generateDate } from "./generate-date";
 
 export const createUser = async (login: string, password: string): Promise<User> => {
