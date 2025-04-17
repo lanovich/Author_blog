@@ -1,5 +1,5 @@
 import { User } from "@/types";
-import { generateDate } from "./generate-date";
+import { generateDate } from "../utils";
 
 export const createUser = async (login: string, password: string): Promise<User> => {
   const response = await fetch("http://localhost:3333/users", {

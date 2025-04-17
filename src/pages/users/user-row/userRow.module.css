@@ -1,0 +1,39 @@
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.loginColumn {
+  font-weight: 500;
+}
+
+.registeredAt {
+  color: #333;
+}
+
+.roleContainer {
+  position: relative;
+}
+
+.saveButton {
+  color: #4caf50;
+  text-align: center;
+  font-size: 18px;
+}
+
+.deleteButton {
+  color: #e42929;
+  text-align: center;
+  font-size: 18px;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content:  center;
+  margin-top: -15px;
+}

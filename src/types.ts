@@ -3,7 +3,7 @@ export interface Session {
   deleteComment?: () => void;
 }
 
-export interface User {
+export interface RawUser {
   id: number;
   login: string;
   password: string;
@@ -11,11 +11,25 @@ export interface User {
   role_id: number;
 }
 
-export interface UserState {
-  session: string;
-  id: number | null;
-  login: string | null;
+export interface User {
+  id: number;
+  login: string;
+  password: string;
+  registeredAt: string;
   roleId: number;
 }
 
-export type Users = User[]
+export interface UserState {
+  session: string;
+  id: number;
+  login: string;
+  registeredAt: string;
+  roleId: number;
+}
+
+export interface Role {
+  id: number;
+  name: number;
+}
+
+export type Users = User[];

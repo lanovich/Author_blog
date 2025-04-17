@@ -36,10 +36,10 @@ export const ControlPanel = () => {
         <div onClick={() => navigate(-1)} className={styles.linkButton}>
           <Icon code="fa-backward" fontSize={"20px"} />
         </div>
-        <Link to={"/"}>
+        <Link to={"/post"}>
           <Icon code="fa-file-text-o" fontSize={"20px"} className={styles.linkButton} />
         </Link>
-        <Link to={"/"}>
+        <Link to={"/users"}>
           <Icon code="fa-users" fontSize={"20px"} className={styles.linkButton} />
         </Link>
       </div>
