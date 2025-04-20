@@ -1,7 +1,7 @@
 import { ACTION_TYPE } from "@/actions";
 import { PostData } from "@/types";
 
-const initialPostState: PostData = {
+export const initialPostState: PostData = {
   id: "",
   title: "",
   imageUrl: "",
@@ -19,6 +19,10 @@ export const postReducer = (
       return {
         ...state,
         ...action.payload,
+      };
+    case ACTION_TYPE.RESET_POST_DATA:
+      return {
+        initialPostState,
       };
     default:
       return state;

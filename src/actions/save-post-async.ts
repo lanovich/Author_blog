@@ -8,9 +8,9 @@ export const savePostAsync: any =
   ): AppThunk =>
   async (dispatch) => {
     try {
-      return await requestServer("savePost", newPostData).then((updatedPost) => {
-        dispatch(setPostData(updatedPost.res));
-      });
+      const updatedPost = await requestServer("savePost", newPostData);
+      dispatch(setPostData(updatedPost.res));
+      return updatedPost.res;
     } catch (error) {
       console.error("Failed to load post:", error);
     }

@@ -1,8 +1,6 @@
-import { User } from "@/types";
-
-export const deleteUser = async (userId: string): Promise<User> => {
+export const deletePost = async (postId: string) => {
   try {
-    const response = await fetch(`/api/users/${userId}`, {
+    const response = await fetch(`/api/posts/${postId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

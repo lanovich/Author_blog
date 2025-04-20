@@ -1,5 +1,5 @@
 import { Icon, Input } from "@/components/shared";
-import { useRef } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { PostData } from "@/types";
 import styles from "./post-form.module.css";
 import { SpecialPanel } from "../special-panel/special-panel";
@@ -18,13 +18,25 @@ export const PostForm: React.FC<Props> = ({ post }) => {
   const requestServer = useServerRequest();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const imageRef = useRef<HTMLInputElement>(null);
-  const titleRef = useRef<HTMLInputElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const [newImageUrl, setNewImageUrl] = useState(imageUrl);
+  const [newTitle, setNewTitle] = useState(title);
+
+  useEffect(() => {
+    setNewImageUrl(imageUrl);
+    setNewTitle(title);
+  }, [imageUrl, title]);
+
+  const onImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewImageUrl(event.target.value);
+  };
+
+  const onTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewTitle(event.target.value);
+  };
+
   const onSave = () => {
-    const newImageUrl = imageRef.current?.value;
-    const newTitle = titleRef.current?.value;
     const newContent = sanitizeContent(contentRef.current?.innerHTML || "");
     console.log(newImageUrl, newTitle, newContent);
 
@@ -35,7 +47,7 @@ export const PostForm: React.FC<Props> = ({ post }) => {
         title: newTitle,
         content: newContent,
       })
-    ).then(() => navigate(`/post/${id}`));
+    ).then(({ id }: { id: string }) => navigate(`/post/${id}`));
   };
 
   return (
@@ -44,8 +56,8 @@ export const PostForm: React.FC<Props> = ({ post }) => {
         <div>
           <label>Ссылка на изображение</label>
           <Input
-            ref={imageRef}
-            defaultValue={imageUrl}
+            value={newImageUrl}
+            onChange={onImageChange}
             width={"100%"}
             placeholder="Изображение..."
           />
@@ -53,20 +65,15 @@ export const PostForm: React.FC<Props> = ({ post }) => {
         <div>
           <label>Заголовок</label>
           <Input
-            ref={titleRef}
-            defaultValue={title}
+            value={newTitle}
+            onChange={onTitleChange}
             width={"100%"}
             placeholder="Заголовок..."
           />
         </div>
       </div>
-      <SpecialPanel publishedAt={publishedAt}>
-        <Icon
-          code={"fa-floppy-o"}
-          margin={"0 20px 0 0"}
-          onClick={onSave}
-          fontSize={"21px"}
-        />
+      <SpecialPanel publishedAt={publishedAt} postId={id}>
+        <Icon code={"fa-floppy-o"} onClick={onSave} fontSize={"21px"} />
       </SpecialPanel>
       <div
         ref={contentRef}

@@ -1,17 +1,19 @@
-.disabledIcon {
-  color: gray;
-  pointer-events: none;
+.icon {
+  margin-top: 17px;
+  font-size: var(--icon-font-size, 20px);
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 .wrapper {
   display: flex;
-  cursor: pointer;
   align-items: center;
   margin: var(--icon-margin, 0);
 }
 
-.icon {
-  margin-top: 17px;
-  cursor: pointer;
-  font-size: var(--icon-font-size, 20px);
+.disabledIcon {
+  color: gray;
+  pointer-events: none;
 }

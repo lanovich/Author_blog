@@ -55,7 +55,7 @@ export const Comments: React.FC<Props> = ({ comments, postId }) => {
       </div>
 
       <div className={styles.comments}>
-        {comments.map(({ id, author, content, publishedAt, authorId }) => (
+        {comments ? comments.map(({ id, author, content, publishedAt, authorId }) => (
           <Comment
             key={id}
             id={id}
@@ -65,7 +65,7 @@ export const Comments: React.FC<Props> = ({ comments, postId }) => {
             authorId={authorId}
             postId={postId}
           />
-        ))}
+        )) : null}
       </div>
     </div>
   );
