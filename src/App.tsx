@@ -5,6 +5,7 @@ import { Authorization, Post, Registration, Users } from "./pages";
 import { useLayoutEffect } from "react";
 import { setUser } from "./actions";
 import { useDispatch } from "react-redux";
+import { Modal } from "./components";
 
 export const Blog = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export const Blog = () => {
         </Routes>
       </main>
       <Footer className={styles.footer} />
+      <Modal />
     </div>
   );
 };

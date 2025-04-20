@@ -4,6 +4,5 @@ export const deleteSession = async (sessionId: string) => {
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify({}),
   });
 };

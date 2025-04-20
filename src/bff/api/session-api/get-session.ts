@@ -8,7 +8,5 @@ export const getSession = async (hash: string): Promise<Session | null> => {
 
   const sessions: RawSession[] = await response.json();
 
-  console.log(sessions)
-
   return sessions.length ? transformSession(sessions[0]) : null;
 };

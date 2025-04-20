@@ -121,38 +121,6 @@
   ],
   "comments": [
     {
-      "id": "9f63",
-      "post_id": "0",
-      "author_id": "71666",
-      "author": "123",
-      "published_at": "2040-04-25 11:58",
-      "content": "Первый комментарий"
-    },
-    {
-      "id": "f514",
-      "post_id": "0",
-      "author_id": "001",
-      "author": "Ivan",
-      "published_at": "2058-06-16 02:14",
-      "content": "Второй комментарий"
-    },
-    {
-      "id": "ecc9",
-      "post_id": "0",
-      "author_id": "001",
-      "author": "Ivan",
-      "published_at": "2057-04-21 09:38",
-      "content": "Третий комментарий"
-    },
-    {
-      "id": "746e",
-      "post_id": "0",
-      "author_id": "001",
-      "author": "Ivan",
-      "published_at": "2058-03-03 10:38",
-      "content": "работает"
-    },
-    {
       "id": "93e0",
       "post_id": "0",
       "author_id": "001",
@@ -169,36 +137,12 @@
       "content": "п"
     },
     {
-      "id": "ce7b",
+      "id": "5a61",
       "post_id": "0",
-      "author_id": "001",
-      "author": "Ivan",
-      "published_at": "2049-09-06 02:25",
-      "content": "32"
-    },
-    {
-      "id": "f49b",
-      "post_id": "0",
-      "author_id": "001",
-      "author": "Ivan",
-      "published_at": "2046-10-25 16:57",
-      "content": "12"
-    },
-    {
-      "id": "aec6",
-      "post_id": "0",
-      "author_id": "001",
-      "author": "Ivan",
-      "published_at": "2060-03-26 02:13",
-      "content": "новый коммент"
-    },
-    {
-      "id": "0d0f",
-      "post_id": "0",
-      "author_id": "001",
-      "author": "Ivan",
-      "published_at": "2061-08-01 00:19",
-      "content": "а"
+      "author_id": "71666",
+      "author": "123",
+      "published_at": "2041-11-12 03:57",
+      "content": "32132"
     }
   ],
   "sessions": [
@@ -214,8 +158,8 @@
       }
     },
     {
-      "id": "7d2e",
-      "hash": "stxanobyv1",
+      "id": "3236",
+      "hash": "lci2wkyhyi",
       "user": {
         "id": "001",
         "login": "Ivan",
