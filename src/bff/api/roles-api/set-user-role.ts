@@ -1,6 +1,6 @@
 import { User } from "@/types";
 
-export const setUserRole = async (userId: number, roleId: number): Promise<User> => {
+export const setUserRole = async (userId: string, roleId: number): Promise<User> => {
   try {
     const response = await fetch(`http://localhost:3333/users/${userId}`, {
       method: "PATCH",

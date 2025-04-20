@@ -56,6 +56,7 @@ export const Registration: React.FC = () => {
       }
 
       dispatch(setUser(res));
+      sessionStorage.setItem("userData", JSON.stringify(res));
     } catch (err) {
       setServerError("Произошла непредвиденная ошибка: ");
       console.log(err);

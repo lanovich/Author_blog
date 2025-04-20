@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.comment {
+  margin: auto;
+  width: 550px;
+  padding: 5px 10px;
+  border: 1px solid;
+}
+
+.informationPanel {
+  display:  flex;
+  justify-content: space-between;
+}
+
+.author {
+  display: flex;
+}
+
+.publishedAt {
+  display: flex;
+}
+
+.commentText {
+  width: 100%;
+}

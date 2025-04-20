@@ -4,7 +4,9 @@ export interface Session {
 }
 
 export interface RawUser {
-  id: number;
+  registeredAt?: string;
+  roleId?: number;
+  id: string;
   login: string;
   password: string;
   registered_at: string;
@@ -12,7 +14,7 @@ export interface RawUser {
 }
 
 export interface User {
-  id: number;
+  id: string;
   login: string;
   password: string;
   registeredAt: string;
@@ -21,7 +23,7 @@ export interface User {
 
 export interface UserState {
   session: string;
-  id: number;
+  id: string;
   login: string;
   registeredAt: string;
   roleId: number;
@@ -33,3 +35,54 @@ export interface Role {
 }
 
 export type Users = User[];
+
+export interface RawPostData {
+  id: string;
+  title: string;
+  image_url: string;
+  content: string;
+  published_at: string;
+  comments: RawCommentData[];
+}
+export interface PostData {
+  id: string;
+  title: string;
+  imageUrl: string;
+  content: string;
+  publishedAt: string;
+  comments: CommentDataWithAuthor[];
+}
+
+export interface CommentData {
+  id: string;
+  content: string;
+  postId: string;
+  author: string;
+  authorId: string;
+  publishedAt: string;
+}
+
+export interface CommentDataWithAuthor extends CommentData {
+  author: string;
+}
+
+export interface RawCommentData {
+  id: string;
+  content: string;
+  author: string;
+  author_id: string;
+  post_id: string;
+  published_at: string;
+}
+
+export interface RawSession {
+  id: string;
+  hash: string;
+  user: RawUser;
+}
+
+export interface Session {
+  id: string;
+  hash: string;
+  user: RawUser;
+}

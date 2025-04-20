@@ -6,10 +6,10 @@ import { ChangeEvent, useState } from "react";
 
 interface Props {
   login: string;
-  id: number;
+  id: string;
   registeredAt: string;
   roleId: number;
-  onUserRemove: () => void
+  onUserRemove: () => void;
   roles: Role[];
 }
 
@@ -29,13 +29,11 @@ export const UserRow: React.FC<Props> = ({
     setSelectedRoleId(Number(e.target.value));
   };
 
-  const onRoleSave = (userId: number, newUserRoleId: number) => {
+  const onRoleSave = (userId: string, newUserRoleId: number) => {
     requestServer("updateUserRole", userId, newUserRoleId).then(() => {
       setInitialRoleId(newUserRoleId);
     });
   };
-
-  
 
   const isSaveButtonDisabled = selectedRoleId === initialRoleId;
 
@@ -66,7 +64,7 @@ export const UserRow: React.FC<Props> = ({
           />
         </span>
         <span className={styles.deleteButton}>
-          <Icon code="fa-trash-o" onClick={onUserRemove}/>
+          <Icon code="fa-trash-o" onClick={onUserRemove} />
         </span>
       </div>
     </div>

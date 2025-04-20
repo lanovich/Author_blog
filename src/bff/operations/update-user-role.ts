@@ -3,13 +3,14 @@ import { setUserRole } from "../api";
 import { sessions } from "../sessions";
 
 export const updateUserRole = async (
-  userSession: string,
-  userId: number,
+  hash: string,
+  userId: string,
   newUserRoleId: number
 ) => {
   const accessRoles = [ROLE_IDS.ADMIN];
+  const access = await sessions.access(hash, accessRoles);
 
-  if (!sessions.access(userSession, accessRoles)) {
+  if (!access) {
     return {
       error: "Доступ запрещен",
       res: null,

@@ -13,6 +13,11 @@ export const ControlPanel = () => {
   const login = useSelector(selectUserLogin);
   const sessionHash = useSelector(selectUserSession);
 
+  const onLogout = () => {
+    dispatch(logout(sessionHash));
+    sessionStorage.removeItem("userData");
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.buttonsRow}>
@@ -23,10 +28,7 @@ export const ControlPanel = () => {
         ) : (
           <>
             <div className={styles.login}>{login}</div>
-            <div
-              onClick={() => dispatch(logout(sessionHash))}
-              className={styles.linkButton}
-            >
+            <div onClick={onLogout} className={styles.linkButton}>
               <Icon code="fa-sign-out" fontSize={"20px"} margin={"8px 0 0 0"} />
             </div>
           </>

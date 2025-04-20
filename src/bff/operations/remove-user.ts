@@ -2,13 +2,12 @@ import { ROLE_IDS } from "@/constants";
 import { deleteUser } from "../api";
 import { sessions } from "../sessions";
 
-export const removeUser = async (
-  userSession: string,
-  userId: number,
-) => {
+export const removeUser = async (hash: string, userId: string) => {
   const accessRoles = [ROLE_IDS.ADMIN];
 
-  if (!sessions.access(userSession, accessRoles)) {
+  const access = await sessions.access(hash, accessRoles);
+
+  if (!access) {
     return {
       error: "Доступ запрещен",
       res: null,

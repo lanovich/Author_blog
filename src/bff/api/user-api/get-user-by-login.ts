@@ -1,5 +1,5 @@
 import { RawUser, User } from "@/types";
-import { transformUser } from "../transformers";
+import { transformUser } from "@/bff/transformers";
 
 export const getUserByLogin = async (login: string): Promise<User | null> => {
   const response = await fetch(
