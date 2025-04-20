@@ -38,7 +38,6 @@ export const PostForm: React.FC<Props> = ({ post }) => {
 
   const onSave = () => {
     const newContent = sanitizeContent(contentRef.current?.innerHTML || "");
-    console.log(newImageUrl, newTitle, newContent);
 
     dispatch(
       savePostAsync(requestServer, {

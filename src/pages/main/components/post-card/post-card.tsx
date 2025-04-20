@@ -23,16 +23,18 @@ export const PostCard: React.FC<Props> = ({
         <div className={styles.imgContainer}>
           <img src={imageUrl} alt={title} className={styles.img} />
         </div>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.meta}>
-          <span className={styles.metaItem}>
-            <Icon code="fa-calendar-o" className={styles.icon} margin={0} />
-            <span>Опубликовано: {publishedAt}</span>
-          </span>
-          <span className={styles.metaItem}>
-            <Icon code="fa-comment-o" className={styles.icon} margin={0} />
-            <span>Комментариев: {commentsCount}</span>
-          </span>
+        <div className={styles.content}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.meta}>
+            <span className={styles.metaItem}>
+              <Icon code="fa-calendar-o" className={styles.icon} margin={0} />
+              <span>Опубликовано: {publishedAt}</span>
+            </span>
+            <span className={styles.metaItem}>
+              <Icon code="fa-comment-o" className={styles.icon} margin={0} />
+              <span>Комментариев: {commentsCount}</span>
+            </span>
+          </div>
         </div>
       </div>
     </Link>

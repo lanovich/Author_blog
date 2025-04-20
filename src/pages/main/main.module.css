@@ -1,17 +1,31 @@
+.mainContainer {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 70px;
+}
+
 .grid {
-  column-count: 3;
-  column-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   padding: 24px;
+}
+
+.paginationWrapper {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
 }
 
 @media (max-width: 1024px) {
   .grid {
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .grid {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 }

@@ -14,8 +14,6 @@ export const savePost = async (hash: string, newPostData: NewPostData) => {
     };
   }
 
-  console.log(newPostData)
-
   const savedPost =
     !newPostData.id ? await createPost(newPostData) : await updatePost(newPostData);
 
