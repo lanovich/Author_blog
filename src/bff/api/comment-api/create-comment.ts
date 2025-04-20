@@ -1,7 +1,12 @@
 import { generateDate } from "@/bff/utils";
 
-export const createComment = async (userId: string, postId: string, author: string, content: string) => {
-  const response = await fetch("http://localhost:3333/comments", {
+export const createComment = async (
+  userId: string,
+  postId: string,
+  author: string,
+  content: string
+) => {
+  const response = await fetch("/api/comments", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

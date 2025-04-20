@@ -1,5 +1,5 @@
 export const deleteComment = async (id: string) => {
-  await fetch(`http://localhost:3333/comments/${id}`, {
+  await fetch(`/api/comments/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

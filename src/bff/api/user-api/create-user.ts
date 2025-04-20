@@ -2,7 +2,7 @@ import { RawUser } from "@/types";
 import { generateDate } from "@/bff/utils";
 
 export const createUser = async (login: string, password: string): Promise<RawUser> => {
-  const response = await fetch("http://localhost:3333/users", {
+  const response = await fetch("/api/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

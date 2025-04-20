@@ -2,7 +2,7 @@ import { User } from "@/types";
 
 export const deleteUser = async (userId: string): Promise<User> => {
   try {
-    const response = await fetch(`http://localhost:3333/users/${userId}`, {
+    const response = await fetch(`/api/users/${userId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

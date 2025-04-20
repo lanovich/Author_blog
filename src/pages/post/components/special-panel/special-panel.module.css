@@ -1,0 +1,13 @@
+.specialPanel {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.publishedAt {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+}

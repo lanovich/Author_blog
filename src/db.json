@@ -26,7 +26,7 @@
       "login": "mia",
       "password": "123123",
       "registered_at": "2062-09-08 00:58",
-      "role_id": 2
+      "role_id": 0
     },
     {
       "id": "3892",
@@ -71,9 +71,9 @@
   "posts": [
     {
       "id": "0",
-      "title": "Lorem ipsum dolor sit amet, consectetur",
-      "image_url": "https://i.pinimg.com/736x/fa/87/dd/fa87dd34bac83a04958235b5c50f69d3.jpg",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis molestie purus. Nulla varius vitae leo sed efficitur. Ut at elit metus. Duis sollicitudin tristique justo, non interdum dolor mattis quis. Sed malesuada tristique magna, accumsan aliquet diam ultrices et. Fusce a hendrerit nunc. Fusce convallis elementum sem, aliquet vulputate sapien condimentum non. Curabitur eleifend porta varius. Suspendisse facilisis justo quis tortor pharetra sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam efficitur sodales lacus eget luctus. Pellentesque pulvinar vel elit quis vehicula. Nullam convallis neque eu ligula varius, eu feugiat magna scelerisque. Suspendisse lacus nisi, facilisis quis dui pretium, feugiat finibus risus. Aliquam dolor urna, placerat suscipit turpis a, sollicitudin sollicitudin enim. Duis nec pretium nisl. Sed est quam, maximus sit amet libero vitae, faucibus pretium risus. Donec eu sapien quam. Nulla facilisi. Mauris nec fermentum tortor, vel lobortis ex. Nam enim odio, aliquet eget tellus quis, tincidunt mattis mauris. Maecenas cursus eu nunc at tincidunt. Praesent pulvinar pulvinar nisl, eget mattis eros commodo ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris nisi nulla, fermentum sed tortor sed, tempus iaculis nisl. Mauris vitae fermentum tortor, ut hendrerit ex.",
+      "title": "Любовь — это…",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM0ZTE3k6580qgttr1ulDPhxfTghbMMBPt6A&s",
+      "content": "Любовь — это не крик, не громкие обещания и не вечные клятвы. Это тишина, в которой тебе спокойно. Это когда кто-то молча подаёт тебе чашку чая, потому что знает, что ты устал. Это когда не нужно говорить вслух — и тебя всё равно понимают.\n\nЛюбовь — это не идеальные отношения, не отсутствие ссор. Это умение спорить без желания ранить. Это стремление понять, даже когда трудно. Это когда ты видишь человека в его уязвимости — и всё равно остаёшься. Особенно тогда.\n\nЛюбовь живёт в деталях. В том, как кто-то запоминает твои привычки. В смс посреди дня: «Ты как?» В тёплом пледе, который тебе подали, даже если ты не попросил. В прогулке под дождём просто потому, что вам нравится быть рядом.\n\nЛюбовь — это принятие. Это когда тебя не пытаются переделать, а берут со всеми плюсами и минусами. Это когда ты можешь быть собой — без страха, без масок, без фильтров.\n\nИногда любовь — это расстояние, но с постоянной мыслью о человеке. Иногда — молчание, в котором слышно больше, чем в часах разговоров. И почти всегда — это работа. Не тяжелая и не изнуряющая, но ежедневная. Как забота о цветке, который ты не забываешь поливать.\n\nЛюбовь — это не только чувство. Это выбор. Выбор оставаться. Слушать. Поддерживать. Прощать. И быть благодарным. За то, что ты не один. За то, что кто-то рядом. И за то, что в этом огромном мире кто-то выбрал именно тебя.",
       "published_at": "2025-12-31"
     },
     {
@@ -165,6 +165,17 @@
         "login": "Ivan",
         "registeredAt": "2025-12-23",
         "password": "12345678",
+        "roleId": 0
+      }
+    },
+    {
+      "id": "a55f",
+      "hash": "hvfpylprr6f",
+      "user": {
+        "id": "93340",
+        "login": "mia",
+        "registeredAt": "2062-09-08 00:58",
+        "password": "123123",
         "roleId": 0
       }
     }

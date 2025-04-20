@@ -1,13 +1,15 @@
 import { H2, Icon } from "@/components/shared";
 import { PostData } from "@/types";
 import styles from "./post-content.module.css";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   post: PostData;
 }
 
 export const PostContent: React.FC<Props> = ({ post }) => {
-  const { content, imageUrl, publishedAt, title } = post;
+  const { id, content, imageUrl, publishedAt, title } = post;
+  const navigate = useNavigate();
 
   return (
     <div className={styles.wrapper}>
@@ -15,19 +17,14 @@ export const PostContent: React.FC<Props> = ({ post }) => {
       <H2>{title}</H2>
       <div className={styles.specialPanel}>
         <div className={styles.publishedAt}>
-          <Icon
-            code={"fa-calendar-o"}
-            margin={"0 20px 0 0"}
-            onClick={() => {}}
-            fontSize={"18px"}
-          />
+          <Icon code={"fa-calendar-o"} margin={"0 20px 0 0"} fontSize={"18px"} />
           {publishedAt}
         </div>
         <div className={styles.buttons}>
           <Icon
             code={"fa-pencil-square-o"}
             margin={"0 20px 0 0"}
-            onClick={() => {}}
+            onClick={() => navigate(`/post/${id}/edit`)}
             fontSize={"21px"}
           />
           <Icon

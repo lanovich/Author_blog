@@ -11,20 +11,16 @@
   object-fit: cover;
 }
 
-.specialPanel {
-  display: flex;
-  justify-content: space-between;
-  margin: -20px 0 20px;
-}
-
-.publishedAt {
-  display: flex;
-}
-
-.buttons {
-  display: flex;
-}
 .content {
   text-align: justify;
+  padding: 5px;
+  font-size: 18px;
   white-space: pre-line;
+}
+
+.inputs {
+  display: flex;
+  direction: column;
+  justify-content: space-between;
+  gap: 10px;
 }

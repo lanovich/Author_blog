@@ -86,3 +86,11 @@ export interface Session {
   hash: string;
   user: RawUser;
 }
+
+export interface NewPostData {
+  id: string;
+  imageUrl: string;
+  postId: string;
+  title: string;
+  content: string;
+}
