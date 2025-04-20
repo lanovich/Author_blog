@@ -53,6 +53,10 @@ export interface PostData {
   comments: CommentDataWithAuthor[];
 }
 
+export interface PostDataDTO extends PostData {
+  commentsCount: number;
+}
+
 export interface CommentData {
   id: string;
   content: string;

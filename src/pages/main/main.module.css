@@ -1,0 +1,17 @@
+.grid {
+  column-count: 3;
+  column-gap: 24px;
+  padding: 24px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    column-count: 1;
+  }
+}

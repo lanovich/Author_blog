@@ -73,7 +73,7 @@ export const PostForm: React.FC<Props> = ({ post }) => {
         </div>
       </div>
       <SpecialPanel publishedAt={publishedAt} postId={id}>
-        <Icon code={"fa-floppy-o"} onClick={onSave} fontSize={"21px"} />
+        <Icon code={"fa-floppy-o"} onClick={onSave} fontSize={"21px"} margin={0} />
       </SpecialPanel>
       <div
         ref={contentRef}

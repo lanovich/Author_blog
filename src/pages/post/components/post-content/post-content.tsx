@@ -19,7 +19,7 @@ export const PostContent: React.FC<Props> = ({ post }) => {
       <SpecialPanel publishedAt={publishedAt} postId={id}>
         <Icon
           code={"fa-pencil-square-o"}
-          margin={"0 20px 0 0"}
+          margin={"0"}
           onClick={() => navigate(`/post/${id}/edit`)}
           fontSize={"21px"}
         />
