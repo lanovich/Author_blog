@@ -1,0 +1,28 @@
+.wrapper {
+  & img {
+    float: left;
+    margin: 0 20px 10px 0;
+  }
+}
+
+.image {
+  width: 400px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.content {
+  text-align: justify;
+  min-height: 80px;
+  border: 2px solid;
+  padding: 5px;
+  font-size: 18px;
+  white-space: pre-line;
+}
+
+.inputs {
+  display: flex;
+  direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}

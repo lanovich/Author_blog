@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+}
+
+.buttonsRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.linkButton {
+  cursor: pointer;
+}
+
+.linkButton:hover {
+  color: #333333;
+}
+
+.login {
+  font-size: 20px;
+  font-weight: bold;
+}
