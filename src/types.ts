@@ -42,7 +42,7 @@ export interface RawPostData {
   image_url: string;
   content: string;
   published_at: string;
-  comments: RawCommentData[];
+  comments: CommentDataWithAuthor[];
 }
 export interface PostData {
   id: string;
@@ -70,6 +70,9 @@ export interface CommentDataWithAuthor extends CommentData {
   author: string;
 }
 
+export interface RawCommentDataWithAuthor extends RawCommentData {
+  author: string;
+}
 export interface RawCommentData {
   id: string;
   content: string;

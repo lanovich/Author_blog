@@ -1,3 +1,4 @@
+import { User } from "@/types";
 import { getUserByLogin, createUser } from "../api";
 import { sessions } from "../sessions";
 
@@ -19,7 +20,7 @@ export const register = async (regLogin: string, regPassword: string) => {
       id: newUser.id,
       login: newUser.login,
       roleId: newUser.role_id,
-      session: sessions.create(newUser),
+      session: sessions.create(newUser as User),
     },
   };
 };

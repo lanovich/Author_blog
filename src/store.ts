@@ -3,16 +3,12 @@ import {
   combineReducers,
   applyMiddleware,
   compose,
-  Action,
+  AnyAction,
 } from "redux";
 import { ThunkAction, thunk } from "redux-thunk";
-import {
-  userReducer,
-  usersReducer,
-  postReducer,
-  postsReducer,
-  appReducer,
-} from "./reducers";
+import { userReducer } from "./reducers/user-reducer";
+import { postReducer } from "./reducers/post-reducer";
+import { appReducer } from "./reducers/app-reducer";
 
 declare global {
   interface Window {
@@ -20,24 +16,24 @@ declare global {
   }
 }
 
-export type RootState = ReturnType<typeof rootReducer>;
-
 const rootReducer = combineReducers({
   user: userReducer,
-  users: usersReducer,
   post: postReducer,
-  posts: postsReducer,
   app: appReducer,
 });
+
+export type RootState = ReturnType<typeof rootReducer>;
 
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
   unknown,
-  Action<string>
+  AnyAction
 >;
 
-const composeEnhancers: typeof compose =
-  (typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const composeEnhancers =
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose;
 
 export const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));

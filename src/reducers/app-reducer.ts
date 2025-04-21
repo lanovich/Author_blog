@@ -1,13 +1,15 @@
 import { ACTION_TYPE } from "../actions";
 
-interface AppState {
+export interface ModalState {
+  text: string;
+  isOpen: boolean;
+  onConfirm: () => void;
+  onCancel: () => void;
+}
+
+export interface AppState {
   wasLogout: boolean;
-  modal: {
-    text: string;
-    isOpen: boolean;
-    onConfirm: () => void;
-    onCancel: () => void;
-  };
+  modal: ModalState;
 }
 
 const initialAppState: AppState = {
@@ -20,10 +22,12 @@ const initialAppState: AppState = {
   },
 };
 
-export const appReducer = (
-  state = initialAppState,
-  action: { type: string; payload: any }
-): AppState => {
+type AppAction =
+  | { type: typeof ACTION_TYPE.LOGOUT }
+  | { type: typeof ACTION_TYPE.OPEN_MODAL; payload: Partial<ModalState> }
+  | { type: typeof ACTION_TYPE.CLOSE_MODAL };
+
+export const appReducer = (state = initialAppState, action: AppAction): AppState => {
   switch (action.type) {
     case ACTION_TYPE.LOGOUT:
       return {
@@ -36,7 +40,7 @@ export const appReducer = (
         ...state,
         modal: {
           ...state.modal,
-          ...action.payload,
+          ...(action as any).payload,
           isOpen: true,
         },
       };
@@ -44,9 +48,7 @@ export const appReducer = (
     case ACTION_TYPE.CLOSE_MODAL:
       return {
         ...state,
-        modal: {
-          ...initialAppState.modal,
-        },
+        modal: initialAppState.modal,
       };
 
     default:
