@@ -12,7 +12,28 @@
       "login": "mia",
       "password": "mianonameova",
       "registered_at": "2048-11-02 09:23",
+      "role_id": 2
+    },
+    {
+      "id": "98151",
+      "login": "admin",
+      "password": "121212",
+      "registered_at": "2064-09-21 06:10",
       "role_id": 0
+    },
+    {
+      "id": "79601",
+      "login": "moder",
+      "password": "121212",
+      "registered_at": "2049-07-22 23:55",
+      "role_id": 1
+    },
+    {
+      "id": "11368",
+      "login": "reader",
+      "password": "121212",
+      "registered_at": "2035-01-23 08:41",
+      "role_id": 2
     }
   ],
   "roles": [
@@ -187,32 +208,61 @@
       "content": "— Как дела? — соседка останавливает лифт.\n— Как сериал.\n— Интересный?\n— Нет. Но продюсеры (родители) требуют продолжения.\n— А зрители?\n— Кот и кактус. И то спят.\nЛифт едет дальше. На стене надпись: «Нажмите 13 этаж для сюжетного поворота».",
       "published_at": "2042-11-21 15:49",
       "id": "5yTVqtO"
-    },
-    {
-      "image_url": "sir",
-      "title": "mia",
-      "content": "hmm i really want some miso soup\nOH MY GOD MISO SOUP\nthx for yo attention",
-      "published_at": "2048-07-14 06:34",
-      "id": "UCgWL9h"
     }
   ],
   "comments": [
     {
-      "post_id": "UCgWL9h",
-      "author_id": "2858",
-      "author": "mia",
-      "published_at": "2039-01-12 01:31",
-      "content": "r u serious\n",
-      "id": 1
+      "post_id": "23dcd",
+      "author_id": "11368",
+      "author": "reader",
+      "published_at": "2036-01-23 17:51",
+      "content": "комментарий",
+      "id": 3
     },
     {
       "post_id": "1e5e",
-      "author_id": "2858",
-      "author": "mia",
-      "published_at": "2033-10-01 08:58",
-      "content": "lol\n\n\n",
-      "id": 2
+      "author_id": "2859",
+      "author": "Ivan",
+      "published_at": "2043-10-23 20:20",
+      "content": "комментарий",
+      "id": 4
+    },
+    {
+      "post_id": "1e5e",
+      "author_id": "11368",
+      "author": "reader",
+      "published_at": "2058-09-05 18:53",
+      "content": "123",
+      "id": 5
+    },
+    {
+      "post_id": "23dcd",
+      "author_id": "2859",
+      "author": "Ivan",
+      "published_at": "2050-06-15 08:41",
+      "content": "комментарий от админа",
+      "id": 6
+    },
+    {
+      "post_id": "acIGStR",
+      "author_id": "79601",
+      "author": "moder",
+      "published_at": "2048-07-22 16:28",
+      "content": "543",
+      "id": 8
     }
   ],
-  "sessions": []
+  "sessions": [
+    {
+      "hash": "nnfs5iv14rq",
+      "user": {
+        "id": "79601",
+        "login": "moder",
+        "registeredAt": "2049-07-22 23:55",
+        "password": "121212",
+        "roleId": 1
+      },
+      "id": 1
+    }
+  ]
 }

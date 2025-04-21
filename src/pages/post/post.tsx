@@ -52,6 +52,8 @@ export const Post = () => {
     return <ErrorMessage>{error}</ErrorMessage>;
   }
 
+  
+
   return isCreating || isEditing ? (
     <PrivateContent access={[ROLE_IDS.ADMIN]} serverError={error}>
       <div className={styles.container}>

@@ -5,6 +5,7 @@ import { selectUserRole, selectUserLogin, selectUserSession } from "@/selectors"
 import { ROLE_IDS } from "@/constants";
 import { logout } from "@/actions";
 import styles from "./control-panel.module.css";
+import { checkAccess } from "@/utils";
 
 export const ControlPanel = () => {
   const navigate = useNavigate();
@@ -17,6 +18,8 @@ export const ControlPanel = () => {
     dispatch(logout(sessionHash));
     sessionStorage.removeItem("userData");
   };
+
+  const isAdmin = checkAccess([ROLE_IDS.ADMIN], roleId);
 
   return (
     <div className={styles.container}>
@@ -38,12 +41,20 @@ export const ControlPanel = () => {
         <div onClick={() => navigate(-1)} className={styles.linkButton}>
           <Icon code="fa-backward" fontSize={"20px"} />
         </div>
-        <Link to={"/post"}>
-          <Icon code="fa-file-text-o" fontSize={"20px"} className={styles.linkButton} />
-        </Link>
-        <Link to={"/users"}>
-          <Icon code="fa-users" fontSize={"20px"} className={styles.linkButton} />
-        </Link>
+        {isAdmin ? (
+          <>
+            <Link to={"/post"}>
+              <Icon
+                code="fa-file-text-o"
+                fontSize={"20px"}
+                className={styles.linkButton}
+              />
+            </Link>
+            <Link to={"/users"}>
+              <Icon code="fa-users" fontSize={"20px"} className={styles.linkButton} />
+            </Link>
+          </>
+        ) : null}
       </div>
     </div>
   );
