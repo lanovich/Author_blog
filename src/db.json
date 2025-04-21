@@ -254,13 +254,13 @@
   ],
   "sessions": [
     {
-      "hash": "nnfs5iv14rq",
+      "hash": "pn28pdte7gq",
       "user": {
-        "id": "79601",
-        "login": "moder",
-        "registeredAt": "2049-07-22 23:55",
+        "id": "98151",
+        "login": "admin",
+        "registeredAt": "2064-09-21 06:10",
         "password": "121212",
-        "roleId": 1
+        "roleId": 0
       },
       "id": 1
     }
