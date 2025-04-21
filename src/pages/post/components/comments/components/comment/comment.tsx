@@ -1,9 +1,12 @@
 import { Icon } from "@/components/shared";
 import { CommentDataWithAuthor } from "@/types";
 import styles from "./comment.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CLOSE_MODAL, openModal, removeCommentAsync } from "@/actions";
 import { useServerRequest } from "@/hooks";
+import { selectUserRole } from "@/selectors";
+import { checkAccess } from "@/utils";
+import { ROLE_IDS } from "@/constants";
 
 export const Comment: React.FC<CommentDataWithAuthor> = ({
   id,
@@ -13,6 +16,7 @@ export const Comment: React.FC<CommentDataWithAuthor> = ({
   publishedAt,
 }) => {
   const dispatch = useDispatch();
+  const userRole = useSelector(selectUserRole);
   const requestServer = useServerRequest();
 
   const onCommentRemove = (id: string) => {
@@ -21,12 +25,14 @@ export const Comment: React.FC<CommentDataWithAuthor> = ({
         text: "Удалить комментарий?",
         onConfirm: () => {
           dispatch(CLOSE_MODAL),
-          dispatch(removeCommentAsync(requestServer, postId, id) as any);
+            dispatch(removeCommentAsync(requestServer, postId, id) as any);
         },
         onCancel: () => dispatch(CLOSE_MODAL),
       })
     );
   };
+
+  const isAdminOrModerator = checkAccess([ROLE_IDS.ADMIN, ROLE_IDS.MODERATOR], userRole);
 
   return (
     <div className={styles.container}>
@@ -43,14 +49,16 @@ export const Comment: React.FC<CommentDataWithAuthor> = ({
         </div>
         <div className={styles.commentText}>{content}</div>
       </div>
-      <Icon
-        code="fa-trash-o"
-        fontSize={"21px"}
-        margin={"0 10px 0 10px"}
-        onClick={() => {
-          onCommentRemove(id);
-        }}
-      />
+      {isAdminOrModerator && (
+        <Icon
+          code="fa-trash-o"
+          fontSize={"21px"}
+          margin={"0 10px 0 10px"}
+          onClick={() => {
+            onCommentRemove(id);
+          }}
+        />
+      )}
     </div>
   );
 };

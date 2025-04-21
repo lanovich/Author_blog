@@ -34,8 +34,6 @@ export const Users = () => {
     );
   }, [requestServer, shouldUpdateUserList, userRole]);
 
-  console.log(users, roles);
-
   const onUserRemove = (userId: string) => {
     if (!checkAccess([ROLE_IDS.ADMIN], userRole)) return;
     requestServer("removeUser", userId).then(() => {
@@ -47,14 +45,12 @@ export const Users = () => {
     ({ id: roleId }) => Number(roleId) !== ROLE_IDS.GUEST
   );
 
-  console.log(errorMessage);
-
   return (
     users &&
     roles && (
       <>
-          <PrivateContent access={[ROLE_IDS.ADMIN]} serverError={errorMessage}>
-        <div className={styles.container}>
+        <PrivateContent access={[ROLE_IDS.ADMIN]} serverError={errorMessage}>
+          <div className={styles.container}>
             <H2>Пользователи</H2>
             <div className={styles.table}>
               <div className={styles.tableHeader}>
@@ -76,8 +72,8 @@ export const Users = () => {
                 />
               ))}
             </div>
-        </div>
-          </PrivateContent>
+          </div>
+        </PrivateContent>
       </>
     )
   );

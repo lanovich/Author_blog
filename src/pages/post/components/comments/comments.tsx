@@ -3,11 +3,12 @@ import styles from "./comments.module.css";
 import { Icon } from "@/components/shared";
 import { Comment } from "./components";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserId } from "@/selectors";
+import { selectUserId, selectUserRole } from "@/selectors";
 import { addCommentAsync } from "@/actions";
 import { useServerRequest } from "@/hooks";
 import { CommentDataWithAuthor } from "@/types";
 import { getCurrentUser } from "@/bff/utils/get-current-user";
+import { ROLE_IDS } from "@/constants";
 
 interface Props {
   postId: string;
@@ -19,53 +20,60 @@ export const Comments: React.FC<Props> = ({ comments, postId }) => {
   const userId = useSelector(selectUserId);
   const requestServer = useServerRequest();
   const dispatch = useDispatch();
+  const userRole = useSelector(selectUserRole);
   const currentUser = getCurrentUser();
 
   const onNewCommentAdd = (
     userId: string,
     postId: string,
     author: string,
-    content: string,
+    content: string
   ) => {
     dispatch(addCommentAsync(requestServer, userId, postId, author, content) as any);
   };
 
+  const isGuest = userRole === ROLE_IDS.GUEST;
+
   return (
     <div className={styles.container}>
-      <div className={styles.newComment}>
-        <textarea
-          value={newComment}
-          placeholder="Комментарий..."
-          onChange={({ target }) => setNewComment(target.value)}
-          className={styles.textArea}
-        />
-        <Icon
-          code={"fa-paper-plane-o"}
-          margin={"0 7px 0 0"}
-          fontSize={"18px"}
-          onClick={() => {
-            if (!currentUser || !userId) {
-              alert("Авторизуйтесь, чтобы оставить комментарий");
-              return;
-            }
-            onNewCommentAdd(userId, postId, currentUser, newComment);
-            setNewComment("");
-          }}
-        />
-      </div>
+      {!isGuest && (
+        <div className={styles.newComment}>
+          <textarea
+            value={newComment}
+            placeholder="Комментарий..."
+            onChange={({ target }) => setNewComment(target.value)}
+            className={styles.textArea}
+          />
+          <Icon
+            code={"fa-paper-plane-o"}
+            margin={"0 7px 0 0"}
+            fontSize={"18px"}
+            onClick={() => {
+              if (!currentUser || !userId) {
+                alert("Авторизуйтесь, чтобы оставить комментарий");
+                return;
+              }
+              onNewCommentAdd(userId, postId, currentUser, newComment);
+              setNewComment("");
+            }}
+          />
+        </div>
+      )}
 
       <div className={styles.comments}>
-        {comments ? comments.map(({ id, author, content, publishedAt, authorId }) => (
-          <Comment
-            key={id}
-            id={id}
-            author={author}
-            content={content}
-            publishedAt={publishedAt}
-            authorId={authorId}
-            postId={postId}
-          />
-        )) : null}
+        {comments
+          ? comments.map(({ id, author, content, publishedAt, authorId }) => (
+              <Comment
+                key={id}
+                id={id}
+                author={author}
+                content={content}
+                publishedAt={publishedAt}
+                authorId={authorId}
+                postId={postId}
+              />
+            ))
+          : null}
       </div>
     </div>
   );
