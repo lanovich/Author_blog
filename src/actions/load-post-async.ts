@@ -9,7 +9,11 @@ export const loadPostAsync =
   async (dispatch) => {
     try {
       const postData = await requestServer("fetchPost", postId);
-      dispatch(setPostData(postData.res));
+      if (postData.res) {
+        dispatch(setPostData(postData.res));
+      }
+      
+      return postData;
     } catch (error) {
       console.error("Failed to load post:", error);
     }

@@ -6,6 +6,8 @@ import { useLayoutEffect } from "react";
 import { setUser } from "./actions";
 import { useDispatch } from "react-redux";
 import { Modal } from "./components";
+import { ERROR_CODE } from "./bff/constants";
+import { ErrorMessage } from "./components/shared";
 
 export const Blog = () => {
   const dispatch = useDispatch();
@@ -31,7 +33,10 @@ export const Blog = () => {
           <Route path="/post" element={<Post />} />
           <Route path="/post/:postId" element={<Post />} />
           <Route path="/post/:postId/edit" element={<Post />} />
-          <Route path="*" element={<div>Ошибка</div>} />
+          <Route
+            path="*"
+            element={<ErrorMessage>{ERROR_CODE.PAGE_NOT_EXIST}</ErrorMessage>}
+          />
         </Routes>
       </main>
       <Footer className={styles.footer} />
