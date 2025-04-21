@@ -10,20 +10,19 @@ export const initialPostState: PostData = {
   comments: [],
 };
 
-export const postReducer = (
-  state = initialPostState,
-  action: { type: string; payload: any }
-) => {
+type PostAction =
+  | { type: typeof ACTION_TYPE.SET_POST_DATA; payload: Partial<PostData> }
+  | { type: typeof ACTION_TYPE.RESET_POST_DATA };
+
+export const postReducer = (state = initialPostState, action: PostAction): PostData => {
   switch (action.type) {
     case ACTION_TYPE.SET_POST_DATA:
       return {
         ...state,
-        ...action.payload,
+        ...(action as any).payload,
       };
     case ACTION_TYPE.RESET_POST_DATA:
-      return {
-        initialPostState,
-      };
+      return initialPostState;
     default:
       return state;
   }
