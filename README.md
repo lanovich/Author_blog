@@ -71,6 +71,12 @@
    ```bash
     git clone git@github.com:lanovich/Author_blog.git
    ```
+   ```bash
+    cd Author_blog
+   ```
+   ```bash
+   npm install
+   ```
 
 1. **JSON Server**
 
