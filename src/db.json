@@ -34,6 +34,13 @@
       "password": "121212",
       "registered_at": "2035-01-23 08:41",
       "role_id": 2
+    },
+    {
+      "id": "7301",
+      "login": "321321",
+      "password": "321321",
+      "registered_at": "2046-01-31 14:58",
+      "role_id": 2
     }
   ],
   "roles": [
@@ -252,17 +259,5 @@
       "id": 8
     }
   ],
-  "sessions": [
-    {
-      "hash": "pn28pdte7gq",
-      "user": {
-        "id": "98151",
-        "login": "admin",
-        "registeredAt": "2064-09-21 06:10",
-        "password": "121212",
-        "roleId": 0
-      },
-      "id": 1
-    }
-  ]
+  "sessions": []
 }
