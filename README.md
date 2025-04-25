@@ -138,7 +138,6 @@ Author_blog/
 - **posts**: `PostSummary[]` – массив статей `{ id, title, imageUrl, content, publishedAt, Comment[] }`
 - **post**: `PostDetail` – полная статья `{ id, title, content, publishedAt, comments: Comment[] }`
 
-```markdown
 ## Скриншоты приложения
 
 ![Панель администратора](public/admin-panel-screen.png)
@@ -146,7 +145,6 @@ Author_blog/
 ![Главная страница](public/main-page-screen.png)
 
 ![Страница статьи](public/post-screen.png)
-```
 
 При просмотре README на GitHub изображения будут загружаться из папки `public` автоматически.
 
